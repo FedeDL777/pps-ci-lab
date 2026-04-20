@@ -1,0 +1,14 @@
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin'
+          java-version: 25
+      - run: ./gradlew clean build
